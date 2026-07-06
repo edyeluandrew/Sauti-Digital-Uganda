@@ -2,6 +2,8 @@
 
 Youth Internet Governance platform — Learn, Spot It, Voice, and live Brief PDF.
 
+**Team:** Team Digital Voices Uganda · **UYIGF 2026 Hackathon**
+
 **Stack:** React + Tailwind (Vite) · Node/Express · Neon Postgres
 
 ## Quick start
@@ -42,15 +44,19 @@ npm run db:init
 npm run dev
 ```
 
+## Deploy
+
+See [DEPLOY.md](./DEPLOY.md) — **Vercel** (client) + **Render** (server).
+
 ## Modules
 
 | Route | Module |
 |-------|--------|
 | `/` | Landing + live session counter |
-| `/learn` | 5 governance cards |
-| `/spot-it` | 8 Uganda misinformation scenarios |
+| `/learn` | 5 governance cards (Luganda + audio) |
+| `/spot-it` | TRACE digital harm scenarios |
 | `/voice` | 5 pulse polls |
-| `/brief` | Live dashboard + PDF download |
+| `/brief` | Live dashboard + PDF + UIGF copy |
 
 ## Brand colors
 

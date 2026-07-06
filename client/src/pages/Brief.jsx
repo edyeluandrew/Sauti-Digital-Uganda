@@ -116,18 +116,18 @@ export default function Brief() {
 
       {!loading && (
         <>
-          <div className="mb-4 grid grid-cols-2 gap-3">
-            <div className="rounded-2xl bg-navy p-4 text-left text-white">
-              <p className="text-3xl font-black text-gold">{pollData.total_respondents}</p>
-              <p className="mt-1 text-xs text-white/65">Poll respondents</p>
+          <div className="mb-4 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
+            <div className="rounded-2xl bg-navy p-4 text-left text-white md:col-span-2">
+              <p className="text-3xl font-black text-gold sm:text-4xl">{pollData.total_respondents}</p>
+              <p className="mt-1 text-xs text-white/65 sm:text-sm">Poll respondents</p>
             </div>
-            <div className="rounded-2xl border border-navy/8 bg-white p-4 text-left shadow-card">
-              <p className="text-3xl font-black text-navy">{sessionCount}</p>
-              <p className="mt-1 text-xs text-slate/55">Total sessions</p>
+            <div className="rounded-2xl border border-navy/8 bg-white p-4 text-left shadow-card md:col-span-2">
+              <p className="text-3xl font-black text-navy sm:text-4xl">{sessionCount}</p>
+              <p className="mt-1 text-xs text-slate/55 sm:text-sm">Total sessions</p>
             </div>
           </div>
 
-          <div className="mb-6 space-y-4">
+          <div className="mb-6 grid grid-cols-1 gap-4 lg:grid-cols-2">
             {pollQuestions.map((q) => (
               <div key={q.id} className="content-card">
                 <p className="mb-3 text-sm font-semibold text-navy">{q.question}</p>

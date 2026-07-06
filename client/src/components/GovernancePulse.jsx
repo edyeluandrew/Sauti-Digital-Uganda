@@ -13,7 +13,7 @@ export default function GovernancePulse({ compact = false }) {
         </p>
       )}
 
-      <div className="mt-4 space-y-3">
+      <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
         {governancePulseItems.map((item) => (
           <a
             key={item.id}

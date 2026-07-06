@@ -28,7 +28,7 @@ export default function SautiFaq() {
       <h3 className="page-title mt-1">Quick answers</h3>
       <p className="page-subtitle">Plain language. No AI chatbot. Always accurate.</p>
 
-      <div className="mt-4 space-y-2">
+      <div className="mt-4 grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3">
         {faqs.map((item, i) => (
           <div key={item.q} className="overflow-hidden rounded-2xl border border-navy/8 bg-white shadow-card">
             <button

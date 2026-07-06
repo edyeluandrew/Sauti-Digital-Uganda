@@ -20,7 +20,7 @@ export default function UyigfAlignment({ compact = false }) {
     <section className="mb-8">
       <p className="section-label">Built for UYIGF 2026</p>
       <h3 className="page-title mt-1">Aligned with hackathon goals</h3>
-      <div className="mt-4 space-y-2">
+      <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3">
         {uyigfObjectives.map((obj) => (
           <div key={obj.id} className="rounded-2xl border border-navy/8 bg-white p-4 shadow-card">
             <p className="text-sm font-bold text-navy">{obj.label}</p>

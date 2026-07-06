@@ -163,7 +163,7 @@ export default function SpotIt() {
       <p className="mb-4 text-sm font-medium text-slate/60">Is this safe to trust and share?</p>
 
       {!feedback ? (
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <button onClick={() => handleAnswer("real")} className="btn-secondary">
             Safe / Real
           </button>

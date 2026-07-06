@@ -29,7 +29,7 @@ export default function HarmStats({ quizStats }) {
                 {item.accuracy}% correct ({item.attempts} attempts)
               </span>
             </div>
-            <div className="h-2 overflow-hidden rounded-full bg-navy/10">
+            <div className="h-2 overflow-hidden rounded-full border border-white/40 bg-white/30 backdrop-blur-sm">
               <div className="h-full rounded-full bg-navy transition-all" style={{ width: `${item.accuracy}%` }} />
             </div>
           </div>

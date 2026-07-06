@@ -31,8 +31,8 @@ function PollChart({ question, results }) {
                 {r.count} ({pct}%)
               </span>
             </div>
-            <div className="h-2 overflow-hidden rounded-full bg-navy/10">
-              <div className="h-full rounded-full bg-gold transition-all" style={{ width: `${pct}%` }} />
+            <div className="h-2.5 overflow-hidden rounded-full border border-white/40 bg-white/30 backdrop-blur-sm">
+              <div className="h-full rounded-full bg-gold shadow-sm transition-all" style={{ width: `${pct}%` }} />
             </div>
           </div>
         );
@@ -117,11 +117,11 @@ export default function Brief() {
       {!loading && (
         <>
           <div className="mb-4 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
-            <div className="rounded-2xl bg-navy p-4 text-left text-white md:col-span-2">
+            <div className="stat-block-navy md:col-span-2">
               <p className="text-3xl font-black text-gold sm:text-4xl">{pollData.total_respondents}</p>
               <p className="mt-1 text-xs text-white/65 sm:text-sm">Poll respondents</p>
             </div>
-            <div className="rounded-2xl border border-navy/8 bg-white p-4 text-left shadow-card md:col-span-2">
+            <div className="stat-block-light md:col-span-2">
               <p className="text-3xl font-black text-navy sm:text-4xl">{sessionCount}</p>
               <p className="mt-1 text-xs text-slate/55 sm:text-sm">Total sessions</p>
             </div>

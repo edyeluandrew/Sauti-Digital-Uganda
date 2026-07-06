@@ -56,7 +56,7 @@ export default function Landing() {
           )}
         </div>
 
-        <div className="mb-8 rounded-2xl border border-gold/25 bg-white p-5 shadow-card sm:p-6 lg:mb-0">
+        <div className="glass-card-gold mb-8 sm:p-6 lg:mb-0">
           <p className="section-label">Why Sauti is different</p>
           <p className="mt-2 text-sm leading-relaxed text-slate/80 sm:text-base">
             Most teams build awareness apps. Sauti produces a{" "}

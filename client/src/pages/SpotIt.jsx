@@ -7,13 +7,13 @@ import { harmCategories, spotItChecklist, traceSteps } from "../lib/content/digi
 import { spotItScenarios } from "../lib/content/spotItScenarios";
 import { getSessionId } from "../lib/session";
 
-const typeStyles = {
-  whatsapp: "bg-[#25D366]/10 border-[#25D366]",
-  govt: "bg-navy/5 border-navy",
-  social: "bg-blue-50 border-blue-400",
-  app: "bg-purple-50 border-purple-400",
-  sms: "bg-yellow-50 border-yellow-500",
-  email: "bg-slate-100 border-slate-400",
+const scenarioStyles = {
+  whatsapp: "scenario-whatsapp",
+  govt: "scenario-govt",
+  social: "scenario-social",
+  app: "scenario-app",
+  sms: "scenario-sms",
+  email: "scenario-email",
 };
 
 export default function SpotIt() {
@@ -110,7 +110,7 @@ export default function SpotIt() {
               {[...new Set(spotItScenarios.map((s) => s.harmCategory))]
                 .filter((id) => id !== "legitimate")
                 .map((id) => (
-                  <span key={id} className="rounded-full bg-navy/10 px-3 py-1 text-xs font-medium text-navy">
+                  <span key={id} className="glass-pill !px-3 !py-1 text-xs font-medium">
                     {harmCategories[id].icon} {harmCategories[id].label}
                   </span>
                 ))}
@@ -155,7 +155,7 @@ export default function SpotIt() {
         ))}
       </div>
 
-      <div className={`mb-6 rounded-2xl border-l-4 bg-white p-5 shadow-card ${typeStyles[scenario.type]}`}>
+      <div className={`scenario-card ${scenarioStyles[scenario.type]}`}>
         <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-navy/60">{scenario.label}</p>
         <p className="whitespace-pre-line text-sm leading-relaxed">{scenario.content}</p>
       </div>
@@ -177,7 +177,7 @@ export default function SpotIt() {
       ) : (
         <div>
           <div
-            className={`mb-4 rounded-xl p-4 ${feedback.isCorrect ? "bg-success/10 text-success" : "bg-alert/10 text-alert"}`}
+            className={`mb-4 ${feedback.isCorrect ? "feedback-success" : "feedback-alert"}`}
           >
             <p className="mb-1 font-bold">{feedback.isCorrect ? "Correct!" : "Not quite"}</p>
             <p className="text-sm text-slate">{feedback.explanation}</p>

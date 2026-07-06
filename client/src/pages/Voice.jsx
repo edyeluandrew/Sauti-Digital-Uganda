@@ -58,7 +58,7 @@ export default function Voice() {
   if (done) {
     return (
       <Layout step={3}>
-        <div className="rounded-2xl border border-gold/30 bg-gold/10 p-6">
+        <div className="glass-card-gold p-6">
           <p className="text-3xl">🎙️</p>
           <h2 className="mt-3 text-2xl font-bold text-navy">Thank you</h2>
           <p className="mt-2 text-sm leading-relaxed text-slate/75">
@@ -91,11 +91,7 @@ export default function Voice() {
             key={option}
             onClick={() => submitAnswer(option)}
             disabled={submitting}
-            className={`w-full rounded-xl border-2 px-5 py-4 text-left text-sm font-bold transition ${
-              selected === option
-                ? "border-gold bg-gold/10 text-navy"
-                : "border-navy/10 bg-white text-navy hover:border-gold/60"
-            }`}
+            className={`poll-option ${selected === option ? "poll-option-selected" : ""}`}
           >
             {option}
           </button>

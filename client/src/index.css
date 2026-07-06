@@ -4,7 +4,9 @@
 
 @layer base {
   body {
-    @apply bg-cream font-sans text-slate antialiased;
+    @apply font-sans text-slate antialiased;
+    background: linear-gradient(160deg, #f7f7f5 0%, #eef1f6 45%, #f3efe6 100%);
+    min-height: 100vh;
   }
 
   h1, h2, h3 {
@@ -13,20 +15,38 @@
 }
 
 @layer components {
-  .btn-primary {
-    @apply inline-flex items-center justify-center rounded-xl bg-gold px-6 py-3.5 text-base font-bold text-navy shadow-sm transition hover:bg-[#e5a800] active:scale-[0.98];
+  /* ── Glass foundation ── */
+  .glass-card {
+    @apply rounded-2xl border border-white/70 bg-white/50 p-5 shadow-glass backdrop-blur-xl;
   }
 
-  .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-xl border-2 border-navy/20 bg-white px-6 py-3.5 text-base font-bold text-navy transition hover:border-navy hover:bg-navy hover:text-white active:scale-[0.98];
+  .glass-card-sm {
+    @apply rounded-2xl border border-white/70 bg-white/50 p-4 shadow-glass backdrop-blur-xl;
   }
 
-  .btn-ghost {
-    @apply text-sm font-medium text-navy underline decoration-gold/60 underline-offset-4 transition hover:decoration-gold;
+  .glass-card-interactive {
+    @apply glass-card-sm transition duration-300 ease-out hover:-translate-y-0.5 hover:border-gold/35 hover:bg-white/65 hover:shadow-glass-hover;
   }
 
+  .glass-card-gold {
+    @apply rounded-2xl border border-gold/25 bg-gold/10 p-5 shadow-glass backdrop-blur-xl;
+  }
+
+  .glass-card-navy {
+    @apply rounded-2xl border border-white/10 bg-navy/80 p-5 text-white shadow-glass-navy backdrop-blur-2xl;
+  }
+
+  .glass-inset {
+    @apply rounded-xl border border-white/50 bg-white/35 p-4 backdrop-blur-md;
+  }
+
+  .glass-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/45 px-4 py-2 text-sm font-medium text-navy shadow-glass backdrop-blur-lg;
+  }
+
+  /* ── Aliases used across pages ── */
   .content-card {
-    @apply rounded-2xl border border-navy/10 bg-white p-5 shadow-card;
+    @apply glass-card;
   }
 
   .section-label {
@@ -42,24 +62,98 @@
   }
 
   .hero-card {
-    @apply relative w-full overflow-hidden rounded-2xl bg-navy p-5 text-left text-white shadow-lift sm:rounded-3xl sm:p-6 md:p-8;
+    @apply relative w-full overflow-hidden rounded-2xl border border-white/15 bg-navy/75 p-5 text-left text-white shadow-glass-navy backdrop-blur-2xl sm:rounded-3xl sm:p-6 md:p-8;
   }
 
   .hero-card::before {
     content: "";
-    @apply absolute right-0 top-0 h-24 w-24 rounded-full bg-gold/15 blur-2xl;
+    @apply absolute -right-8 -top-8 h-40 w-40 rounded-full bg-gold/20 blur-3xl;
+  }
+
+  .hero-card::after {
+    content: "";
+    @apply absolute -bottom-12 -left-12 h-48 w-48 rounded-full bg-white/5 blur-3xl;
   }
 
   .stat-pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-navy/10 bg-white px-4 py-2 text-sm font-medium text-navy shadow-card;
+    @apply glass-pill;
   }
 
   .loop-card {
-    @apply flex items-start gap-4 rounded-2xl border border-navy/10 bg-white p-4 shadow-card;
+    @apply flex items-start gap-4 rounded-2xl border border-white/70 bg-white/45 p-4 shadow-glass backdrop-blur-xl transition duration-300 hover:border-gold/30 hover:bg-white/60 hover:shadow-glass-hover;
   }
 
   .loop-num {
-    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy text-sm font-bold text-gold sm:h-10 sm:w-10;
+    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy/90 text-sm font-bold text-gold shadow-sm ring-2 ring-white/25 backdrop-blur-sm sm:h-10 sm:w-10;
+  }
+
+  /* ── Scenario cards (Spot It) ── */
+  .scenario-card {
+    @apply mb-6 rounded-2xl border border-white/50 border-l-4 bg-white/40 p-5 shadow-glass backdrop-blur-xl;
+  }
+
+  .scenario-whatsapp {
+    @apply border-l-[#25D366];
+    background-color: rgba(37, 211, 102, 0.08);
+  }
+
+  .scenario-govt {
+    @apply border-l-navy bg-navy/5;
+  }
+
+  .scenario-social {
+    @apply border-l-blue-400 bg-blue-400/10;
+  }
+
+  .scenario-app {
+    @apply border-l-purple-400 bg-purple-400/10;
+  }
+
+  .scenario-sms {
+    @apply border-l-yellow-500 bg-yellow-500/10;
+  }
+
+  .scenario-email {
+    @apply border-l-slate/40 bg-slate/10;
+  }
+
+  /* ── Poll & feedback ── */
+  .poll-option {
+    @apply w-full rounded-xl border-2 border-white/60 bg-white/45 px-5 py-4 text-left text-sm font-bold text-navy shadow-glass backdrop-blur-lg transition duration-200 hover:border-gold/50 hover:bg-white/65;
+  }
+
+  .poll-option-selected {
+    @apply border-gold/60 bg-gold/15 shadow-glass-hover;
+  }
+
+  .feedback-success {
+    @apply rounded-xl border border-success/25 bg-success/10 p-4 text-success backdrop-blur-md;
+  }
+
+  .feedback-alert {
+    @apply rounded-xl border border-alert/25 bg-alert/10 p-4 text-alert backdrop-blur-md;
+  }
+
+  /* ── Stat blocks (Brief) ── */
+  .stat-block-navy {
+    @apply glass-card-navy;
+  }
+
+  .stat-block-light {
+    @apply rounded-2xl border border-white/70 bg-white/50 p-4 text-left shadow-glass backdrop-blur-xl;
+  }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-gold px-6 py-3.5 text-base font-bold text-navy shadow-sm transition hover:bg-[#e5a800] active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border-2 border-navy/15 bg-white/55 px-6 py-3.5 text-base font-bold text-navy shadow-glass backdrop-blur-md transition hover:border-navy hover:bg-navy hover:text-white active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply text-sm font-medium text-navy underline decoration-gold/60 underline-offset-4 transition hover:decoration-gold;
   }
 
   .responsive-grid-2 {

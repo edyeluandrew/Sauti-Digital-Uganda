@@ -20,7 +20,7 @@ export default function GovernancePulse({ compact = false }) {
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-card-interactive group block"
+            className="surface-card-interactive group"
           >
             <div className="mb-2 flex flex-wrap items-center gap-2">
               <span className={`rounded-full px-2.5 py-0.5 text-xs font-bold ${statusStyles[item.status]}`}>

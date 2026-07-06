@@ -110,7 +110,7 @@ export default function SpotIt() {
               {[...new Set(spotItScenarios.map((s) => s.harmCategory))]
                 .filter((id) => id !== "legitimate")
                 .map((id) => (
-                  <span key={id} className="glass-pill !px-3 !py-1 text-xs font-medium">
+                  <span key={id} className="badge text-xs font-medium">
                     {harmCategories[id].icon} {harmCategories[id].label}
                   </span>
                 ))}

@@ -47,7 +47,7 @@ export default function Learn() {
 
       <div className="content-card mb-4">
         <p className="leading-relaxed text-slate/85">{card.body}</p>
-        <div className="glass-inset mt-4">
+        <div className="surface-inset mt-4">
           <p className="section-label !text-navy/50">Uganda example</p>
           <p className="mt-1 text-sm leading-relaxed text-slate/75">{card.example}</p>
         </div>

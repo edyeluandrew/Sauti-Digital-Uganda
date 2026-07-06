@@ -4,169 +4,195 @@
 
 @layer base {
   body {
-    @apply font-sans text-slate antialiased;
-    background: linear-gradient(160deg, #f7f7f5 0%, #eef1f6 45%, #f3efe6 100%);
-    min-height: 100vh;
+    @apply bg-cream font-sans text-slate antialiased;
   }
 
   h1, h2, h3 {
-    @apply text-navy;
+    @apply font-display text-navy;
   }
 }
 
 @layer components {
-  /* ── Glass foundation ── */
-  .glass-card {
-    @apply rounded-2xl border border-white/70 bg-white/50 p-5 shadow-glass backdrop-blur-xl;
+  /* ── Surfaces (award-site pattern: solid, high contrast, clear borders) ── */
+  .surface-card {
+    @apply rounded-card border border-navy/[0.08] bg-white p-5 shadow-card;
   }
 
-  .glass-card-sm {
-    @apply rounded-2xl border border-white/70 bg-white/50 p-4 shadow-glass backdrop-blur-xl;
+  .surface-card-sm {
+    @apply rounded-card border border-navy/[0.08] bg-white p-4 shadow-soft;
   }
 
-  .glass-card-interactive {
-    @apply glass-card-sm transition duration-300 ease-out hover:-translate-y-0.5 hover:border-gold/35 hover:bg-white/65 hover:shadow-glass-hover;
+  .surface-card-interactive {
+    @apply surface-card-sm block transition duration-200 hover:-translate-y-px hover:border-gold/50 hover:shadow-card;
   }
 
-  .glass-card-gold {
-    @apply rounded-2xl border border-gold/25 bg-gold/10 p-5 shadow-glass backdrop-blur-xl;
+  .surface-accent {
+    @apply rounded-card border border-gold/30 bg-[#FFFBF0] p-5 shadow-soft;
   }
 
-  .glass-card-navy {
-    @apply rounded-2xl border border-white/10 bg-navy/80 p-5 text-white shadow-glass-navy backdrop-blur-2xl;
+  .surface-navy {
+    @apply rounded-card bg-navy p-5 text-white shadow-lift;
   }
 
-  .glass-inset {
-    @apply rounded-xl border border-white/50 bg-white/35 p-4 backdrop-blur-md;
+  .surface-inset {
+    @apply rounded-lg border border-navy/[0.06] bg-cream/80 p-4;
   }
 
-  .glass-pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/45 px-4 py-2 text-sm font-medium text-navy shadow-glass backdrop-blur-lg;
+  .badge {
+    @apply inline-flex items-center gap-2 rounded-full border border-navy/10 bg-white px-3.5 py-1.5 text-sm font-medium text-navy shadow-soft;
   }
 
-  /* ── Aliases used across pages ── */
   .content-card {
-    @apply glass-card;
+    @apply surface-card;
   }
 
+  /* ── Typography ── */
   .section-label {
-    @apply mb-1 text-xs font-bold uppercase tracking-widest text-gold;
+    @apply mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-gold;
   }
 
   .page-title {
-    @apply text-xl font-bold leading-tight text-navy sm:text-2xl md:text-3xl;
+    @apply font-display text-xl font-bold leading-tight tracking-tight text-navy sm:text-2xl md:text-[1.75rem];
   }
 
   .page-subtitle {
-    @apply mt-2 text-sm leading-relaxed text-slate/70 sm:text-base;
+    @apply mt-2 max-w-2xl text-sm leading-relaxed text-slate/70 sm:text-base;
   }
 
-  .hero-card {
-    @apply relative w-full overflow-hidden rounded-2xl border border-white/15 bg-navy/75 p-5 text-left text-white shadow-glass-navy backdrop-blur-2xl sm:rounded-3xl sm:p-6 md:p-8;
+  .display-title {
+    @apply font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-[2.75rem];
   }
 
-  .hero-card::before {
+  /* ── Hero (editorial civic: Utah / nonprofit pattern) ── */
+  .hero-editorial {
+    @apply relative overflow-hidden rounded-2xl bg-navy p-6 text-left text-white shadow-lift sm:p-8 lg:p-10;
+    background-image:
+      linear-gradient(135deg, #0b2545 0%, #123a66 55%, #0b2545 100%),
+      linear-gradient(rgba(244, 180, 0, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(244, 180, 0, 0.07) 1px, transparent 1px);
+    background-size: 100% 100%, 24px 24px, 24px 24px;
+  }
+
+  .hero-editorial::after {
     content: "";
-    @apply absolute -right-8 -top-8 h-40 w-40 rounded-full bg-gold/20 blur-3xl;
-  }
-
-  .hero-card::after {
-    content: "";
-    @apply absolute -bottom-12 -left-12 h-48 w-48 rounded-full bg-white/5 blur-3xl;
+    @apply pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-gold/15 blur-3xl;
   }
 
   .stat-pill {
-    @apply glass-pill;
+    @apply badge bg-white/95;
+  }
+
+  .trust-badge {
+    @apply inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white/90 backdrop-blur-sm;
+  }
+
+  /* ── Step cards ── */
+  .step-card {
+    @apply flex flex-col gap-3 rounded-card border border-navy/[0.08] bg-white p-5 shadow-soft transition duration-200 hover:border-gold/40 hover:shadow-card;
+  }
+
+  .step-num {
+    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-navy font-display text-sm font-bold text-gold;
   }
 
   .loop-card {
-    @apply flex items-start gap-4 rounded-2xl border border-white/70 bg-white/45 p-4 shadow-glass backdrop-blur-xl transition duration-300 hover:border-gold/30 hover:bg-white/60 hover:shadow-glass-hover;
+    @apply step-card;
   }
 
   .loop-num {
-    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-navy/90 text-sm font-bold text-gold shadow-sm ring-2 ring-white/25 backdrop-blur-sm sm:h-10 sm:w-10;
+    @apply step-num;
   }
 
   /* ── Scenario cards (Spot It) ── */
   .scenario-card {
-    @apply mb-6 rounded-2xl border border-white/50 border-l-4 bg-white/40 p-5 shadow-glass backdrop-blur-xl;
+    @apply mb-6 rounded-card border border-navy/[0.08] border-l-4 bg-white p-5 shadow-card;
   }
 
   .scenario-whatsapp {
     @apply border-l-[#25D366];
-    background-color: rgba(37, 211, 102, 0.08);
   }
 
   .scenario-govt {
-    @apply border-l-navy bg-navy/5;
+    @apply border-l-navy;
   }
 
   .scenario-social {
-    @apply border-l-blue-400 bg-blue-400/10;
+    @apply border-l-blue-500;
   }
 
   .scenario-app {
-    @apply border-l-purple-400 bg-purple-400/10;
+    @apply border-l-purple-500;
   }
 
   .scenario-sms {
-    @apply border-l-yellow-500 bg-yellow-500/10;
+    @apply border-l-yellow-500;
   }
 
   .scenario-email {
-    @apply border-l-slate/40 bg-slate/10;
+    @apply border-l-slate/50;
   }
 
   /* ── Poll & feedback ── */
   .poll-option {
-    @apply w-full rounded-xl border-2 border-white/60 bg-white/45 px-5 py-4 text-left text-sm font-bold text-navy shadow-glass backdrop-blur-lg transition duration-200 hover:border-gold/50 hover:bg-white/65;
+    @apply w-full rounded-lg border-2 border-navy/[0.08] bg-white px-5 py-4 text-left text-sm font-semibold text-navy shadow-soft transition duration-150 hover:border-gold/50 hover:bg-[#FFFBF0];
   }
 
   .poll-option-selected {
-    @apply border-gold/60 bg-gold/15 shadow-glass-hover;
+    @apply border-gold bg-[#FFFBF0] shadow-card;
   }
 
   .feedback-success {
-    @apply rounded-xl border border-success/25 bg-success/10 p-4 text-success backdrop-blur-md;
+    @apply rounded-lg border border-success/20 bg-[#F1F8F2] p-4 text-success;
   }
 
   .feedback-alert {
-    @apply rounded-xl border border-alert/25 bg-alert/10 p-4 text-alert backdrop-blur-md;
+    @apply rounded-lg border border-alert/20 bg-[#FDF2F4] p-4 text-alert;
   }
 
-  /* ── Stat blocks (Brief) ── */
   .stat-block-navy {
-    @apply glass-card-navy;
+    @apply surface-navy;
   }
 
   .stat-block-light {
-    @apply rounded-2xl border border-white/70 bg-white/50 p-4 text-left shadow-glass backdrop-blur-xl;
+    @apply surface-card-sm;
   }
 
   /* ── Buttons ── */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-xl bg-gold px-6 py-3.5 text-base font-bold text-navy shadow-sm transition hover:bg-[#e5a800] active:scale-[0.98];
+    @apply inline-flex items-center justify-center rounded-lg bg-gold px-6 py-3.5 font-display text-sm font-bold text-navy shadow-soft transition hover:bg-[#e5a800] active:scale-[0.99] sm:text-base;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-xl border-2 border-navy/15 bg-white/55 px-6 py-3.5 text-base font-bold text-navy shadow-glass backdrop-blur-md transition hover:border-navy hover:bg-navy hover:text-white active:scale-[0.98];
+    @apply inline-flex items-center justify-center rounded-lg border-2 border-navy/15 bg-white px-6 py-3.5 font-display text-sm font-bold text-navy shadow-soft transition hover:border-navy hover:bg-navy hover:text-white active:scale-[0.99] sm:text-base;
   }
 
   .btn-ghost {
-    @apply text-sm font-medium text-navy underline decoration-gold/60 underline-offset-4 transition hover:decoration-gold;
+    @apply text-sm font-medium text-navy underline decoration-gold/50 underline-offset-4 transition hover:decoration-gold;
+  }
+
+  .section-divider {
+    @apply mb-8 border-b border-navy/[0.06] pb-8;
   }
 
   .responsive-grid-2 {
-    @apply grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4;
+    @apply grid grid-cols-1 gap-4 sm:grid-cols-2;
   }
 
   .action-bar {
-    @apply mt-8 flex w-full flex-col gap-3 sm:flex-row sm:items-stretch;
+    @apply mt-10 flex w-full flex-col gap-3 border-t border-navy/[0.06] pt-8 sm:flex-row sm:items-stretch;
   }
 
   .action-bar .btn-primary,
   .action-bar .btn-secondary,
   .action-bar .btn-ghost {
     @apply w-full sm:flex-1;
+  }
+
+  .progress-track {
+    @apply h-1.5 w-full overflow-hidden rounded-full bg-navy/10;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full bg-gold transition-all duration-500;
   }
 }

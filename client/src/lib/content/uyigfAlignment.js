@@ -28,6 +28,25 @@ export const differentiators = [
   "Produces a governance brief policymakers can use (Brief)",
 ];
 
+export const loopSteps = [
+  {
+    title: "Learn",
+    desc: "Internet governance basics in plain language, with Uganda examples.",
+  },
+  {
+    title: "Spot It",
+    desc: "TRACE training on scams, misinformation, and privacy harms.",
+  },
+  {
+    title: "Voice",
+    desc: "Live pulse polls on AI policy, data rights, and youth representation.",
+  },
+  {
+    title: "Brief",
+    desc: "Export a Youth Digital Governance Brief for UIGF thematic input.",
+  },
+];
+
 export const pitchScript = {
   opening:
     "Sauti means voice. We built a youth consultation instrument — not another awareness app — that closes Uganda's internet governance gap.",

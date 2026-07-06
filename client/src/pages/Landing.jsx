@@ -4,7 +4,7 @@ import GovernancePulse from "../components/GovernancePulse";
 import Layout from "../components/Layout";
 import SautiFaq from "../components/SautiFaq";
 import UyigfAlignment from "../components/UyigfAlignment";
-import { differentiators } from "../lib/content/uyigfAlignment";
+import { loopSteps } from "../lib/content/uyigfAlignment";
 import { api } from "../lib/api";
 import { ensureSession } from "../lib/session";
 
@@ -33,55 +33,79 @@ export default function Landing() {
 
   return (
     <Layout showNav={false}>
-      <div className="w-full lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
-        <div className="hero-card mb-6 lg:mb-0">
-          <p className="relative section-label !text-gold/90">Uganda Youth</p>
-          <p className="relative mt-1 text-sm font-medium text-gold sm:text-base">
+      <section className="hero-editorial mb-10">
+        <div className="relative">
+          <div className="mb-4 flex flex-wrap gap-2">
+            <span className="trust-badge">UYIGF 2026</span>
+            <span className="trust-badge">Uganda Youth</span>
+          </div>
+
+          <p className="relative text-sm font-semibold text-gold sm:text-base">
             Sauti · Eddoboozi · Your Voice
           </p>
-          <h2 className="relative mt-3 text-2xl font-bold leading-snug text-white sm:text-3xl md:text-4xl">
-            Internet Governance Platform
+          <h2 className="display-title relative mt-2 max-w-3xl">
+            Uganda Youth Internet Governance Platform
           </h2>
-          <p className="relative mt-3 max-w-prose text-sm leading-relaxed text-white/75 sm:text-base">
-            Learn, spot digital harms, share your voice, and export a governance brief for UIGF.
+          <p className="relative mt-4 max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">
+            Learn digital governance, spot harms with TRACE, share your policy views, and export a
+            live brief for UIGF.
           </p>
 
+          <div className="relative mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button onClick={handleStart} disabled={loading} className="btn-primary">
+              {loading ? "Starting..." : "Start the journey"}
+            </button>
+            <button
+              onClick={() => navigate("/brief")}
+              className="inline-flex items-center justify-center rounded-lg border-2 border-white/25 px-6 py-3.5 font-display text-sm font-bold text-white transition hover:border-white/50 hover:bg-white/10 sm:text-base"
+            >
+              View live brief
+            </button>
+          </div>
+
           {count !== null && (
-            <div className="relative mt-5">
+            <div className="relative mt-6">
               <span className="stat-pill">
-                <span className="text-lg font-bold text-gold">{count}</span>
-                youth have shared their voice
+                <span className="font-display text-lg font-extrabold text-gold">{count}</span>
+                youth voices captured
               </span>
             </div>
           )}
         </div>
+      </section>
 
-        <div className="glass-card-gold mb-8 sm:p-6 lg:mb-0">
+      <section className="section-divider">
+        <div className="surface-accent">
           <p className="section-label">Why Sauti is different</p>
-          <p className="mt-2 text-sm leading-relaxed text-slate/80 sm:text-base">
+          <p className="mt-1 max-w-3xl text-sm leading-relaxed text-slate/80 sm:text-base">
             Most teams build awareness apps. Sauti produces a{" "}
-            <strong className="font-bold text-navy">live Youth Digital Governance Brief</strong> from real
-            youth data, ready for UIGF thematic input.
+            <strong className="font-semibold text-navy">live Youth Digital Governance Brief</strong>{" "}
+            from real youth data, ready for UIGF thematic input.
           </p>
         </div>
-      </div>
+      </section>
 
-      <GovernancePulse />
-      <UyigfAlignment />
-
-      <section className="mb-8 w-full">
-        <p className="section-label">The full loop</p>
-        <h3 className="page-title mt-1">Four steps to make your voice count</h3>
-        <div className="mt-4 responsive-grid-2">
-          {differentiators.map((desc, i) => (
-            <div key={desc} className="loop-card h-full">
-              <span className="loop-num">{i + 1}</span>
-              <p className="pt-1.5 text-sm leading-relaxed text-slate/80 sm:text-base">{desc}</p>
+      <section className="section-divider">
+        <p className="section-label">How it works</p>
+        <h3 className="page-title">Four steps. One voice that counts.</h3>
+        <p className="page-subtitle">
+          Clear pathways like top civic platforms. Each step builds toward a policy-ready output.
+        </p>
+        <div className="mt-6 responsive-grid-2">
+          {loopSteps.map((step, i) => (
+            <div key={step.title} className="step-card h-full">
+              <div className="flex items-center gap-3">
+                <span className="step-num">{String(i + 1).padStart(2, "0")}</span>
+                <h4 className="font-display text-base font-bold text-navy">{step.title}</h4>
+              </div>
+              <p className="text-sm leading-relaxed text-slate/70">{step.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
+      <GovernancePulse />
+      <UyigfAlignment />
       <SautiFaq />
 
       <div className="action-bar">

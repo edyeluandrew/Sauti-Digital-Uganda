@@ -30,7 +30,7 @@ export default function SautiFaq() {
 
       <div className="mt-4 grid grid-cols-1 gap-2 md:grid-cols-2 md:gap-3">
         {faqs.map((item, i) => (
-          <div key={item.q} className="glass-card-sm overflow-hidden !p-0 transition hover:border-gold/30 hover:bg-white/60">
+          <div key={item.q} className="surface-card-sm overflow-hidden !p-0">
             <button
               onClick={() => setOpen(open === i ? null : i)}
               className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left text-sm font-bold text-navy"

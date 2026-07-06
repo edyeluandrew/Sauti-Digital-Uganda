@@ -31,8 +31,8 @@ function PollChart({ question, results }) {
                 {r.count} ({pct}%)
               </span>
             </div>
-            <div className="h-2.5 overflow-hidden rounded-full border border-white/40 bg-white/30 backdrop-blur-sm">
-              <div className="h-full rounded-full bg-gold shadow-sm transition-all" style={{ width: `${pct}%` }} />
+            <div className="progress-track">
+              <div className="progress-fill" style={{ width: `${pct}%` }} />
             </div>
           </div>
         );

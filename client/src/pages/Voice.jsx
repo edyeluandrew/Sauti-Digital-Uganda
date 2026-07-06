@@ -58,7 +58,7 @@ export default function Voice() {
   if (done) {
     return (
       <Layout step={3}>
-        <div className="glass-card-gold p-6">
+        <div className="surface-accent p-6">
           <p className="text-3xl">🎙️</p>
           <h2 className="mt-3 text-2xl font-bold text-navy">Thank you</h2>
           <p className="mt-2 text-sm leading-relaxed text-slate/75">

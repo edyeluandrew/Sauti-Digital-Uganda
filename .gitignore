@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.env.local
+server/.env
+client/.env
+client/.env.local
+*.log
+.DS_Store
+build_pdf.py
+Sauti_Digital_Uganda_Project_Spec.pdf

@@ -15,14 +15,14 @@ export default function Layout({ children, step = 0, showNav = true }) {
       <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 pb-12 pt-5 sm:px-6 lg:px-8">
         <header className="mb-8 flex w-full items-center justify-between gap-4 border-b border-navy/[0.08] pb-5">
           <Link to="/" className="group flex items-center gap-3">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy font-display text-lg font-extrabold text-gold shadow-soft transition group-hover:bg-navy-light">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-navy font-display text-lg font-extrabold text-gold-light shadow-soft transition group-hover:bg-navy-light">
               S
             </span>
             <div className="text-left">
               <h1 className="font-display text-xl font-extrabold tracking-tight text-navy sm:text-2xl">
                 SAUTI
               </h1>
-              <p className="text-[11px] font-medium text-gold sm:text-xs">
+              <p className="text-[11px] font-semibold text-gold-dark sm:text-xs">
                 Your Voice. Uganda&apos;s Digital Future.
               </p>
             </div>
@@ -49,7 +49,7 @@ export default function Layout({ children, step = 0, showNav = true }) {
                     key={item.label}
                     className={`rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wide sm:text-xs ${
                       active
-                        ? "bg-navy text-gold"
+                        ? "bg-navy text-gold-light"
                         : done
                           ? "bg-navy/10 text-navy"
                           : "bg-white text-navy/35 ring-1 ring-navy/10"
@@ -70,7 +70,7 @@ export default function Layout({ children, step = 0, showNav = true }) {
 
         <footer className="mt-12 w-full border-t border-navy/[0.08] pt-6 text-left">
           <p className="font-display text-sm font-bold text-navy">Team Digital Voices Uganda</p>
-          <p className="mt-1 text-xs text-slate/50">UYIGF 2026 · sauti-digital-uganda.vercel.app</p>
+          <p className="mt-1 text-xs text-muted">UYIGF 2026 · sauti-digital-uganda.vercel.app</p>
         </footer>
       </div>
     </div>

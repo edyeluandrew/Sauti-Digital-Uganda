@@ -36,7 +36,7 @@ export default function SautiFaq() {
               className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left text-sm font-bold text-navy"
             >
               {item.q}
-              <span className="shrink-0 text-gold">{open === i ? "−" : "+"}</span>
+              <span className="shrink-0 text-gold-dark">{open === i ? "−" : "+"}</span>
             </button>
             {open === i && (
               <p className="border-t border-navy/5 px-4 py-3 text-sm leading-relaxed text-slate/75">

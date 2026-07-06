@@ -37,7 +37,7 @@ export default function GovernancePulse({ compact = false }) {
               <p className="mt-2 text-[11px] text-slate/40">Updated {item.lastUpdated}</p>
             )}
 
-            <p className="mt-3 text-sm font-bold text-gold">{item.action} →</p>
+            <p className="mt-3 text-sm font-bold text-teal">{item.action} →</p>
           </a>
         ))}
       </div>

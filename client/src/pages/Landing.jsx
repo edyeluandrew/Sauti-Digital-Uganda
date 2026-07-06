@@ -40,7 +40,7 @@ export default function Landing() {
             <span className="trust-badge">Uganda Youth</span>
           </div>
 
-          <p className="relative text-sm font-semibold text-gold sm:text-base">
+          <p className="relative text-sm font-semibold text-gold-light sm:text-base">
             Sauti · Eddoboozi · Your Voice
           </p>
           <h2 className="display-title relative mt-2 max-w-3xl">
@@ -66,7 +66,7 @@ export default function Landing() {
           {count !== null && (
             <div className="relative mt-6">
               <span className="stat-pill">
-                <span className="font-display text-lg font-extrabold text-gold">{count}</span>
+                <span className="font-display text-lg font-extrabold text-gold-light">{count}</span>
                 youth voices captured
               </span>
             </div>
@@ -77,7 +77,7 @@ export default function Landing() {
       <section className="section-divider">
         <div className="surface-accent">
           <p className="section-label">Why Sauti is different</p>
-          <p className="mt-1 max-w-3xl text-sm leading-relaxed text-slate/80 sm:text-base">
+          <p className="mt-1 max-w-3xl text-sm leading-relaxed text-muted sm:text-base">
             Most teams build awareness apps. Sauti produces a{" "}
             <strong className="font-semibold text-navy">live Youth Digital Governance Brief</strong>{" "}
             from real youth data, ready for UIGF thematic input.
@@ -98,7 +98,7 @@ export default function Landing() {
                 <span className="step-num">{String(i + 1).padStart(2, "0")}</span>
                 <h4 className="font-display text-base font-bold text-navy">{step.title}</h4>
               </div>
-              <p className="text-sm leading-relaxed text-slate/70">{step.desc}</p>
+              <p className="text-sm leading-relaxed text-muted">{step.desc}</p>
             </div>
           ))}
         </div>

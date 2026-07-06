@@ -145,7 +145,7 @@ export default function SpotIt() {
       />
 
       <div className="mb-3 flex flex-wrap items-center gap-2">
-        <span className="rounded-full bg-navy px-3 py-1 text-xs font-semibold text-gold">
+        <span className="rounded-full bg-navy px-3 py-1 text-xs font-semibold text-gold-light">
           {harm.icon} {harm.label}
         </span>
         {scenario.redFlags?.map((flag) => (

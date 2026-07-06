@@ -118,7 +118,7 @@ export default function Brief() {
         <>
           <div className="mb-4 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
             <div className="stat-block-navy md:col-span-2">
-              <p className="text-3xl font-black text-gold sm:text-4xl">{pollData.total_respondents}</p>
+              <p className="text-3xl font-black text-gold-light sm:text-4xl">{pollData.total_respondents}</p>
               <p className="mt-1 text-xs text-white/65 sm:text-sm">Poll respondents</p>
             </div>
             <div className="stat-block-light md:col-span-2">
@@ -142,7 +142,7 @@ export default function Brief() {
               <ul className="space-y-2">
                 {getRecommendations().map((rec) => (
                   <li key={rec} className="flex gap-2 text-sm">
-                    <span className="text-gold">•</span>
+                    <span className="text-gold-dark">•</span>
                     <span>{rec}</span>
                   </li>
                 ))}
@@ -165,7 +165,7 @@ export default function Brief() {
             {copied ? "Copied! Paste into UIGF form" : "Copy brief text for UIGF submission"}
           </button>
 
-          <button onClick={openUigfSubmission} className="mb-3 w-full rounded-xl border-2 border-gold bg-gold/10 py-3 text-sm font-semibold text-navy">
+          <button onClick={openUigfSubmission} className="mb-3 w-full rounded-xl border-2 border-gold bg-gold-tint py-3 text-sm font-semibold text-navy">
             Open UIGF.ug to submit →
           </button>
 

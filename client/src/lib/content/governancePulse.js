@@ -54,7 +54,7 @@ export const governancePulseItems = [
 ];
 
 export const statusStyles = {
-  open: "bg-success/15 text-success",
-  upcoming: "bg-gold/20 text-navy",
-  ongoing: "bg-navy/10 text-navy",
+  open: "bg-teal-light text-teal-dark",
+  upcoming: "bg-gold-tint text-gold-dark",
+  ongoing: "bg-cream-dark text-navy",
 };

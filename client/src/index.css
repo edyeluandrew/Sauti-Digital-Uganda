@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --sauti-navy: #062339;
+    --sauti-gold: #e5a100;
+    --sauti-teal: #0a8f7a;
+    --sauti-cream: #faf7f2;
+    --sauti-ink: #152432;
+  }
+
   body {
-    @apply bg-cream font-sans text-slate antialiased;
+    @apply bg-cream font-sans text-ink antialiased;
   }
 
   h1, h2, h3 {
@@ -13,7 +21,6 @@
 }
 
 @layer components {
-  /* ── Surfaces (award-site pattern: solid, high contrast, clear borders) ── */
   .surface-card {
     @apply rounded-card border border-navy/[0.08] bg-white p-5 shadow-card;
   }
@@ -23,11 +30,11 @@
   }
 
   .surface-card-interactive {
-    @apply surface-card-sm block transition duration-200 hover:-translate-y-px hover:border-gold/50 hover:shadow-card;
+    @apply surface-card-sm block transition duration-200 hover:-translate-y-px hover:border-teal/40 hover:shadow-card;
   }
 
   .surface-accent {
-    @apply rounded-card border border-gold/30 bg-[#FFFBF0] p-5 shadow-soft;
+    @apply rounded-card border border-gold/25 bg-gold-tint p-5 shadow-soft;
   }
 
   .surface-navy {
@@ -35,7 +42,7 @@
   }
 
   .surface-inset {
-    @apply rounded-lg border border-navy/[0.06] bg-cream/80 p-4;
+    @apply rounded-lg border border-navy/[0.06] bg-cream-dark/60 p-4;
   }
 
   .badge {
@@ -46,9 +53,8 @@
     @apply surface-card;
   }
 
-  /* ── Typography ── */
   .section-label {
-    @apply mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-gold;
+    @apply mb-2 text-[11px] font-bold uppercase tracking-[0.14em] text-gold-dark;
   }
 
   .page-title {
@@ -56,26 +62,25 @@
   }
 
   .page-subtitle {
-    @apply mt-2 max-w-2xl text-sm leading-relaxed text-slate/70 sm:text-base;
+    @apply mt-2 max-w-2xl text-sm leading-relaxed text-muted sm:text-base;
   }
 
   .display-title {
     @apply font-display text-3xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-4xl md:text-[2.75rem];
   }
 
-  /* ── Hero (editorial civic: Utah / nonprofit pattern) ── */
   .hero-editorial {
     @apply relative overflow-hidden rounded-2xl bg-navy p-6 text-left text-white shadow-lift sm:p-8 lg:p-10;
     background-image:
-      linear-gradient(135deg, #0b2545 0%, #123a66 55%, #0b2545 100%),
-      linear-gradient(rgba(244, 180, 0, 0.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(244, 180, 0, 0.07) 1px, transparent 1px);
+      linear-gradient(135deg, #062339 0%, #0c3d5c 50%, #062339 100%),
+      linear-gradient(rgba(229, 161, 0, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(229, 161, 0, 0.08) 1px, transparent 1px);
     background-size: 100% 100%, 24px 24px, 24px 24px;
   }
 
   .hero-editorial::after {
     content: "";
-    @apply pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-gold/15 blur-3xl;
+    @apply pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-gold/20 blur-3xl;
   }
 
   .stat-pill {
@@ -83,16 +88,15 @@
   }
 
   .trust-badge {
-    @apply inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white/90 backdrop-blur-sm;
+    @apply inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-white/90;
   }
 
-  /* ── Step cards ── */
   .step-card {
-    @apply flex flex-col gap-3 rounded-card border border-navy/[0.08] bg-white p-5 shadow-soft transition duration-200 hover:border-gold/40 hover:shadow-card;
+    @apply flex flex-col gap-3 rounded-card border border-navy/[0.08] bg-white p-5 shadow-soft transition duration-200 hover:border-teal/35 hover:shadow-card;
   }
 
   .step-num {
-    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-navy font-display text-sm font-bold text-gold;
+    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-navy font-display text-sm font-bold text-gold-light;
   }
 
   .loop-card {
@@ -103,7 +107,6 @@
     @apply step-num;
   }
 
-  /* ── Scenario cards (Spot It) ── */
   .scenario-card {
     @apply mb-6 rounded-card border border-navy/[0.08] border-l-4 bg-white p-5 shadow-card;
   }
@@ -117,36 +120,35 @@
   }
 
   .scenario-social {
-    @apply border-l-blue-500;
+    @apply border-l-teal;
   }
 
   .scenario-app {
-    @apply border-l-purple-500;
+    @apply border-l-navy-mid;
   }
 
   .scenario-sms {
-    @apply border-l-yellow-500;
+    @apply border-l-gold;
   }
 
   .scenario-email {
-    @apply border-l-slate/50;
+    @apply border-l-muted;
   }
 
-  /* ── Poll & feedback ── */
   .poll-option {
-    @apply w-full rounded-lg border-2 border-navy/[0.08] bg-white px-5 py-4 text-left text-sm font-semibold text-navy shadow-soft transition duration-150 hover:border-gold/50 hover:bg-[#FFFBF0];
+    @apply w-full rounded-lg border-2 border-navy/[0.08] bg-white px-5 py-4 text-left text-sm font-semibold text-navy shadow-soft transition duration-150 hover:border-teal/40 hover:bg-teal-light;
   }
 
   .poll-option-selected {
-    @apply border-gold bg-[#FFFBF0] shadow-card;
+    @apply border-gold bg-gold-tint shadow-card;
   }
 
   .feedback-success {
-    @apply rounded-lg border border-success/20 bg-[#F1F8F2] p-4 text-success;
+    @apply rounded-lg border border-success/20 bg-teal-light p-4 text-success;
   }
 
   .feedback-alert {
-    @apply rounded-lg border border-alert/20 bg-[#FDF2F4] p-4 text-alert;
+    @apply rounded-lg border border-alert/20 bg-[#FDF0F0] p-4 text-alert;
   }
 
   .stat-block-navy {
@@ -157,13 +159,12 @@
     @apply surface-card-sm;
   }
 
-  /* ── Buttons ── */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-lg bg-gold px-6 py-3.5 font-display text-sm font-bold text-navy shadow-soft transition hover:bg-[#e5a800] active:scale-[0.99] sm:text-base;
+    @apply inline-flex items-center justify-center rounded-lg bg-gold px-6 py-3.5 font-display text-sm font-bold text-navy shadow-soft transition hover:bg-gold-light active:scale-[0.99] sm:text-base;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-lg border-2 border-navy/15 bg-white px-6 py-3.5 font-display text-sm font-bold text-navy shadow-soft transition hover:border-navy hover:bg-navy hover:text-white active:scale-[0.99] sm:text-base;
+    @apply inline-flex items-center justify-center rounded-lg border-2 border-navy/15 bg-white px-6 py-3.5 font-display text-sm font-bold text-navy shadow-soft transition hover:border-navy hover:bg-navy hover:text-gold-light active:scale-[0.99] sm:text-base;
   }
 
   .btn-ghost {

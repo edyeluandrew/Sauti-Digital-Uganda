@@ -27,6 +27,30 @@
 
 ---
 
+## CI/CD (GitHub Actions + Render)
+
+### What runs automatically
+
+| Workflow | When | What it does |
+|----------|------|----------------|
+| `ci.yml` | Every push/PR to `main` | Builds client + verifies server |
+| `deploy-render.yml` | After CI passes on `main` | Triggers Render redeploy + health check |
+
+### One-time setup: Render deploy hook
+
+1. Render dashboard → your **sauti-api** service → **Settings**
+2. Scroll to **Deploy Hook** → **Create deploy hook**
+3. Copy the hook URL
+4. GitHub repo → **Settings** → **Secrets and variables** → **Actions**
+5. New secret: `RENDER_DEPLOY_HOOK` = paste the hook URL
+
+### Render auto-deploy (backup)
+
+In Render → **Settings** → ensure **Auto-Deploy** is **Yes** for branch `main`.  
+Then every `git push` to main also deploys via Render directly (even without the hook).
+
+---
+
 ## 1. Deploy API (Render — live)
 
 1. Push repo to GitHub

@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch index.js",
+    "build": "echo No build step required for Express API",
     "start": "node index.js",
     "db:init": "node db/init.js"
   },

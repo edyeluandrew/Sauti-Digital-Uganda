@@ -13,10 +13,11 @@ export default {
         "navy-light": "#1A3A5C",
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Roboto", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        card: "0 4px 14px rgba(11, 37, 69, 0.08)",
+        card: "0 2px 12px rgba(11, 37, 69, 0.06)",
+        lift: "0 8px 24px rgba(11, 37, 69, 0.1)",
       },
     },
   },

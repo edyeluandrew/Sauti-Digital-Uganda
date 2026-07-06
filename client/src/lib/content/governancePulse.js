@@ -1,7 +1,7 @@
 export const governancePulseItems = [
   {
     id: "gov_01",
-    title: "UIGF 2026 — Call for Thematic Inputs",
+    title: "UIGF 2026 Call for Thematic Inputs",
     status: "open",
     statusLabel: "Open",
     date: "2026",

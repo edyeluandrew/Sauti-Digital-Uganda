@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
+import PageHeader from "../components/PageHeader";
 import { api } from "../lib/api";
 import { pollQuestions } from "../lib/content/pollQuestions";
 import { getSessionId } from "../lib/session";
@@ -57,15 +58,14 @@ export default function Voice() {
   if (done) {
     return (
       <Layout step={3}>
-        <div className="flex flex-col items-center text-center">
-          <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gold/20 text-4xl">
-            🎙️
-          </div>
-          <h2 className="mb-3 text-2xl font-bold text-navy">Thank you!</h2>
-          <p className="mb-8 text-slate/70">
-            Your voice is now part of the Youth Digital Governance Brief — live data that can be submitted to UIGF 2026 thematic input.
+        <div className="rounded-2xl border border-gold/30 bg-gold/10 p-6">
+          <p className="text-3xl">🎙️</p>
+          <h2 className="mt-3 text-2xl font-bold text-navy">Thank you</h2>
+          <p className="mt-2 text-sm leading-relaxed text-slate/75">
+            Your voice is now part of the Youth Digital Governance Brief. Live data that can be
+            submitted to UIGF 2026 thematic input.
           </p>
-          <button onClick={goToBrief} className="btn-primary w-full">
+          <button onClick={goToBrief} className="btn-primary mt-6 w-full">
             View Live Brief
           </button>
         </div>
@@ -75,14 +75,14 @@ export default function Voice() {
 
   return (
     <Layout step={3}>
-      <p className="mb-2 text-sm font-medium text-gold">Voice</p>
-      <h2 className="mb-1 text-xl font-bold text-navy">Pulse Poll</h2>
-      <p className="mb-6 text-sm text-slate/60">
-        Question {index + 1} of {pollQuestions.length}
-      </p>
+      <PageHeader
+        label="Voice"
+        title="Pulse Poll"
+        subtitle={`Question ${index + 1} of ${pollQuestions.length}`}
+      />
 
       <div className="content-card mb-6">
-        <p className="text-base font-medium leading-relaxed">{question.question}</p>
+        <p className="text-base font-medium leading-relaxed text-navy">{question.question}</p>
       </div>
 
       <div className="space-y-3">
@@ -91,10 +91,10 @@ export default function Voice() {
             key={option}
             onClick={() => submitAnswer(option)}
             disabled={submitting}
-            className={`w-full rounded-xl border-2 px-5 py-4 text-left font-semibold transition ${
+            className={`w-full rounded-xl border-2 px-5 py-4 text-left text-sm font-bold transition ${
               selected === option
                 ? "border-gold bg-gold/10 text-navy"
-                : "border-navy/15 bg-white text-navy hover:border-gold"
+                : "border-navy/10 bg-white text-navy hover:border-gold/60"
             }`}
           >
             {option}

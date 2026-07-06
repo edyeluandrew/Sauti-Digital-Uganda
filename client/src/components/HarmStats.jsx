@@ -7,7 +7,7 @@ export default function HarmStats({ quizStats }) {
     return (
       <div className="content-card mb-6">
         <p className="mb-1 font-semibold text-navy">Digital Harm Literacy</p>
-        <p className="text-sm text-slate/50">No Spot It data yet — complete Spot It to see harm-type breakdown.</p>
+        <p className="text-sm text-slate/50">No Spot It data yet. Complete Spot It to see harm breakdown.</p>
       </div>
     );
   }

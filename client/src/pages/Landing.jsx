@@ -33,55 +33,58 @@ export default function Landing() {
 
   return (
     <Layout showNav={false}>
-      <div className="flex flex-col items-center text-center">
-        <div className="mb-8 mt-8 w-full rounded-3xl bg-navy p-8 text-white shadow-card">
-          <p className="mb-2 text-sm font-medium uppercase tracking-widest text-gold">Uganda Youth</p>
-          <p className="mb-1 text-xs font-medium text-gold">Sauti · Eddoboozi — Your Voice</p>
-          <h2 className="mb-4 text-3xl font-bold leading-tight">Internet Governance Platform</h2>
-          <p className="text-sm leading-relaxed text-white/80">
-            A youth consultation instrument — learn, spot digital harms, share your voice, export a governance brief for UIGF.
-          </p>
+      <div className="hero-card mb-6">
+        <p className="relative section-label !text-gold/90">Uganda Youth</p>
+        <p className="relative mt-1 text-sm font-medium text-gold">Sauti · Eddoboozi · Your Voice</p>
+        <h2 className="relative mt-3 text-2xl font-bold leading-snug text-white">
+          Internet Governance Platform
+        </h2>
+        <p className="relative mt-3 text-sm leading-relaxed text-white/75">
+          Learn, spot digital harms, share your voice, and export a governance brief for UIGF.
+        </p>
+      </div>
+
+      {count !== null && (
+        <div className="mb-6">
+          <span className="stat-pill">
+            <span className="text-lg font-bold text-gold">{count}</span>
+            youth have shared their voice
+          </span>
         </div>
+      )}
 
-        <div className="mb-6 w-full rounded-xl border border-gold/30 bg-gold/10 p-4 text-left">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-navy">Why Sauti is different</p>
-          <p className="text-sm text-slate/80">
-            Most teams will build awareness apps. Sauti produces a <strong className="text-navy">live Youth Digital Governance Brief</strong> — real data youth generate, ready for UIGF thematic input.
-          </p>
-        </div>
+      <div className="mb-8 rounded-2xl border border-gold/25 bg-white p-5 shadow-card">
+        <p className="section-label">Why Sauti is different</p>
+        <p className="mt-2 text-sm leading-relaxed text-slate/80">
+          Most teams build awareness apps. Sauti produces a{" "}
+          <strong className="font-bold text-navy">live Youth Digital Governance Brief</strong> from real
+          youth data, ready for UIGF thematic input.
+        </p>
+      </div>
 
-        {count !== null && (
-          <p className="mb-6 rounded-full bg-white px-4 py-2 text-sm font-semibold text-navy shadow-card">
-            <span className="text-gold">{count}</span> youth have shared their voice
-          </p>
-        )}
+      <GovernancePulse />
+      <UyigfAlignment />
 
-        <GovernancePulse />
-
-        <UyigfAlignment />
-
-        <div className="mb-4 w-full text-left">
-          <p className="mb-2 text-sm font-semibold text-navy">The full loop</p>
-        </div>
-
-        <div className="mb-8 grid w-full gap-3 text-left">
+      <section className="mb-8">
+        <p className="section-label">The full loop</p>
+        <h3 className="page-title mt-1">Four steps to make your voice count</h3>
+        <div className="mt-4 space-y-3">
           {differentiators.map((desc, i) => (
-            <div key={desc} className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-card">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gold text-sm font-bold text-navy">
-                {i + 1}
-              </span>
-              <p className="text-sm text-slate/80">{desc}</p>
+            <div key={desc} className="loop-card">
+              <span className="loop-num">{i + 1}</span>
+              <p className="pt-1.5 text-sm leading-relaxed text-slate/80">{desc}</p>
             </div>
           ))}
         </div>
+      </section>
 
-        <SautiFaq />
+      <SautiFaq />
 
-        <button onClick={handleStart} disabled={loading} className="btn-primary w-full text-lg">
+      <div className="mt-8 space-y-3">
+        <button onClick={handleStart} disabled={loading} className="btn-primary w-full">
           {loading ? "Starting..." : "Start"}
         </button>
-
-        <button onClick={() => navigate("/brief")} className="mt-4 text-sm font-medium text-navy underline">
+        <button onClick={() => navigate("/brief")} className="btn-ghost w-full text-center">
           View live brief
         </button>
       </div>

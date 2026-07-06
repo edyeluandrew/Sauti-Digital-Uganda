@@ -5,6 +5,7 @@ import HarmStats from "../components/HarmStats";
 import Layout from "../components/Layout";
 import SubmitGuide from "../components/SubmitGuide";
 import UyigfAlignment from "../components/UyigfAlignment";
+import PageHeader from "../components/PageHeader";
 import { api } from "../lib/api";
 import { generateBriefPdf } from "../lib/briefGenerator";
 import { pollQuestions, recommendationTemplates } from "../lib/content/pollQuestions";
@@ -99,13 +100,13 @@ export default function Brief() {
 
   return (
     <Layout step={4}>
-      <p className="mb-2 text-sm font-medium text-gold">Brief</p>
-      <h2 className="mb-1 text-xl font-bold text-navy">Youth Digital Governance Brief</h2>
-      <p className="mb-6 text-sm text-slate/60">
-        Live youth input · near real-time (3s) · submittable to UIGF 2026
-      </p>
+      <PageHeader
+        label="Brief"
+        title="Youth Digital Governance Brief"
+        subtitle="Live youth input. Updates every 3 seconds. Ready for UIGF 2026."
+      />
 
-      {loading && <p className="text-center text-slate/60">Loading live data...</p>}
+      {loading && <p className="text-sm text-slate/60">Loading live data...</p>}
 
       {error && (
         <div className="mb-4 rounded-xl bg-alert/10 p-4 text-sm text-alert">
@@ -116,13 +117,13 @@ export default function Brief() {
       {!loading && (
         <>
           <div className="mb-4 grid grid-cols-2 gap-3">
-            <div className="rounded-xl bg-navy p-4 text-center text-white">
-              <p className="text-2xl font-bold text-gold">{pollData.total_respondents}</p>
-              <p className="text-xs text-white/70">Poll respondents</p>
+            <div className="rounded-2xl bg-navy p-4 text-left text-white">
+              <p className="text-3xl font-black text-gold">{pollData.total_respondents}</p>
+              <p className="mt-1 text-xs text-white/65">Poll respondents</p>
             </div>
-            <div className="rounded-xl bg-white p-4 text-center shadow-card">
-              <p className="text-2xl font-bold text-navy">{sessionCount}</p>
-              <p className="text-xs text-slate/60">Total sessions</p>
+            <div className="rounded-2xl border border-navy/8 bg-white p-4 text-left shadow-card">
+              <p className="text-3xl font-black text-navy">{sessionCount}</p>
+              <p className="mt-1 text-xs text-slate/55">Total sessions</p>
             </div>
           </div>
 
@@ -172,7 +173,7 @@ export default function Brief() {
             Refresh Data
           </button>
 
-          <Link to="/" className="block text-center text-sm font-medium text-navy underline">
+          <Link to="/" className="btn-ghost mt-2 block text-left">
             Back to home
           </Link>
         </>

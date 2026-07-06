@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/Layout";
+import PageHeader from "../components/PageHeader";
 import { api } from "../lib/api";
 import { harmCategories, spotItChecklist, traceSteps } from "../lib/content/digitalHarms";
 import { spotItScenarios } from "../lib/content/spotItScenarios";
@@ -70,22 +71,19 @@ export default function SpotIt() {
   if (showIntro) {
     return (
       <Layout step={2}>
-        <p className="mb-2 text-sm font-medium text-gold">Spot It</p>
-        <h2 className="mb-2 text-xl font-bold text-navy">How youth spot digital harms</h2>
-        <p className="mb-6 text-sm leading-relaxed text-slate/70">
-          Digital harms are online actions that hurt people — scams, fake news, data theft, or sharing private content
-          without consent. Use <strong className="text-navy">TRACE</strong> before you trust, share, or click.
-        </p>
+        <PageHeader
+          label="Spot It"
+          title="How youth spot digital harms"
+          subtitle="Scams, fake news, data theft, and privacy violations. Use TRACE before you trust, share, or click."
+        />
 
         <div className="mb-6 space-y-2">
           {traceSteps.map((step) => (
-            <div key={step.letter} className="flex gap-3 rounded-xl bg-white p-3 shadow-card">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy text-sm font-bold text-gold">
-                {step.letter}
-              </span>
+            <div key={step.letter} className="loop-card !p-3">
+              <span className="loop-num">{step.letter}</span>
               <div>
-                <p className="text-sm font-semibold text-navy">{step.word}</p>
-                <p className="text-xs text-slate/70">{step.tip}</p>
+                <p className="text-sm font-bold text-navy">{step.word}</p>
+                <p className="text-xs leading-relaxed text-slate/65">{step.tip}</p>
               </div>
             </div>
           ))}
@@ -101,14 +99,12 @@ export default function SpotIt() {
   if (finished) {
     return (
       <Layout step={2}>
-        <div className="text-center">
-          <p className="mb-2 text-sm font-medium text-gold">Spot It — Results</p>
-          <h2 className="mb-2 text-3xl font-bold text-navy">
-            {score}/{spotItScenarios.length}
-          </h2>
-          <p className="mb-6 text-slate/70">digital harms spotted correctly</p>
+        <PageHeader label="Spot It" title="Your results" subtitle="Digital harms spotted correctly" />
+        <p className="-mt-4 mb-6 text-4xl font-black text-navy">
+          {score}<span className="text-xl font-bold text-slate/40">/{spotItScenarios.length}</span>
+        </p>
 
-          <div className="content-card mb-4 text-left">
+        <div className="content-card mb-4">
             <p className="mb-3 font-semibold text-navy">Harm types you practiced:</p>
             <div className="flex flex-wrap gap-2">
               {[...new Set(spotItScenarios.map((s) => s.harmCategory))]
@@ -121,8 +117,8 @@ export default function SpotIt() {
             </div>
           </div>
 
-          <div className="content-card mb-6 text-left">
-            <p className="mb-3 font-semibold text-navy">Your TRACE checklist:</p>
+        <div className="content-card mb-6">
+          <p className="mb-3 font-bold text-navy">Your TRACE checklist</p>
             <ul className="space-y-2">
               {spotItChecklist.map((item) => (
                 <li key={item} className="flex gap-2 text-sm">
@@ -131,23 +127,22 @@ export default function SpotIt() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <button onClick={goToVoice} className="btn-primary w-full">
-            Share Your Voice
-          </button>
         </div>
+
+        <button onClick={goToVoice} className="btn-primary w-full">
+          Share Your Voice
+        </button>
       </Layout>
     );
   }
 
   return (
     <Layout step={2}>
-      <p className="mb-2 text-sm font-medium text-gold">Spot It</p>
-      <h2 className="mb-1 text-xl font-bold text-navy">Spot the digital harm</h2>
-      <p className="mb-4 text-sm text-slate/60">
-        Scenario {index + 1} of {spotItScenarios.length} · Score: {score}
-      </p>
+      <PageHeader
+        label="Spot It"
+        title="Spot the digital harm"
+        subtitle={`Scenario ${index + 1} of ${spotItScenarios.length} · Score ${score}`}
+      />
 
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <span className="rounded-full bg-navy px-3 py-1 text-xs font-semibold text-gold">
@@ -165,7 +160,7 @@ export default function SpotIt() {
         <p className="whitespace-pre-line text-sm leading-relaxed">{scenario.content}</p>
       </div>
 
-      <p className="mb-4 text-center text-sm text-slate/60">Is this safe to trust and share?</p>
+      <p className="mb-4 text-sm font-medium text-slate/60">Is this safe to trust and share?</p>
 
       {!feedback ? (
         <div className="grid grid-cols-2 gap-3">

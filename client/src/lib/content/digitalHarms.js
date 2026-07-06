@@ -82,4 +82,4 @@ export const traceSteps = [
   },
 ];
 
-export const spotItChecklist = traceSteps.map((s) => `${s.letter} — ${s.word}: ${s.tip}`);
+export const spotItChecklist = traceSteps.map((s) => `${s.letter}. ${s.word}: ${s.tip}`);

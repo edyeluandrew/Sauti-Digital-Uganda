@@ -71,7 +71,7 @@ npm run db:init
 npm run dev
 ```
 
-App: http://localhost:5173 | API: http://localhost:3001
+App: https://sauti-digital-uganda.vercel.app | API: https://sauti-digital-uganda.onrender.com
 
 ---
 

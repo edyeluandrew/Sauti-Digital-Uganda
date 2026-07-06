@@ -34,7 +34,7 @@ export default function Layout({ children, step = 0, showNav = true }) {
 
       <footer className="mt-8 border-t border-navy/10 pt-4 text-center">
         <p className="text-xs font-semibold text-navy">Team Digital Voices Uganda</p>
-        <p className="text-xs text-slate/50">UYIGF 2026 Hackathon · Sauti Digital Uganda</p>
+        <p className="text-xs text-slate/50">UYIGF 2026 Hackathon · sauti-digital-uganda.vercel.app</p>
       </footer>
     </div>
   );

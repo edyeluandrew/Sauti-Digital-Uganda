@@ -139,7 +139,7 @@ export function generateBriefPdf({ pollData, quizStats, sessionCount }) {
 
   doc.setFontSize(8);
   doc.setTextColor(120, 120, 120);
-  doc.text("Team Digital Voices Uganda | uigf.ug | UYIGF 2026 Hackathon", 14, 285);
+  doc.text("Team Digital Voices Uganda | sauti-digital-uganda.vercel.app | UYIGF 2026", 14, 285);
 
   doc.save(`Sauti_Youth_Governance_Brief_${date.replace(/\s/g, "_")}.pdf`);
 }

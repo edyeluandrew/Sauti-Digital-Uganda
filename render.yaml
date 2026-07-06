@@ -9,6 +9,6 @@ services:
       - key: DATABASE_URL
         sync: false
       - key: CLIENT_URL
-        sync: false
+        value: https://sauti-digital-uganda.vercel.app
       - key: NODE_VERSION
         value: "20"

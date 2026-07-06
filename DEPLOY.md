@@ -17,7 +17,17 @@
 
 ---
 
-## 1. Deploy API (Render — free tier)
+## Live URLs
+
+| Service | URL |
+|---------|-----|
+| **App (Vercel)** | https://sauti-digital-uganda.vercel.app |
+| **API (Render)** | https://sauti-digital-uganda.onrender.com |
+| **Health check** | https://sauti-digital-uganda.onrender.com/api/health |
+
+---
+
+## 1. Deploy API (Render — live)
 
 1. Push repo to GitHub
 2. [render.com](https://render.com) → New **Web Service** → connect repo

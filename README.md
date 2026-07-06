@@ -4,6 +4,13 @@ Youth Internet Governance platform — Learn, Spot It, Voice, and live Brief PDF
 
 **Team:** Team Digital Voices Uganda · **UYIGF 2026 Hackathon**
 
+## Live demo
+
+| | URL |
+|---|-----|
+| **App** | https://sauti-digital-uganda.vercel.app |
+| **API** | https://sauti-digital-uganda.onrender.com |
+
 **Stack:** React + Tailwind (Vite) · Node/Express · Neon Postgres
 
 ## Quick start
